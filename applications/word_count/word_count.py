@@ -7,8 +7,11 @@ def word_count(s):
         return cache
     string = s.lower()
     forbidden_char = ["\"", "\\", ":", ";", ",", ".", "-", "+", "=", "/", "|", "[", "]", "{", "}", "(", ")",  "*", "^", "&"]
+    alt_white_space = ["\n", "\r", "\t"]
     for char in forbidden_char:
         string = string.replace(char, "")
+    for space in alt_white_space:
+        string = string.replace(space, " ")
     words = string.split(" ")
     for word in words:
         if word != "":
