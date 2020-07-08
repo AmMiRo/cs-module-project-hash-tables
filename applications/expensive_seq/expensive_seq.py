@@ -1,10 +1,12 @@
 # Your code here
+# initialize cache
 cache = {}
 
 def expensive_seq(x, y, z):
-    # Your code here
+    # if x, y, z is in cache return value from cache
     if f"{x},{y},{z}" in cache:
         return cache[f"{x},{y},{z}"]
+    # if x,y,z not in cache run logic, store solution in cache, and return solution
     else:
         if x <= 0:
             solution = y + z

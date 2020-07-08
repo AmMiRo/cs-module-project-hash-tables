@@ -11,6 +11,7 @@ def slowfun_too_slow(x, y):
 
     return v
 
+# initialize cache
 cache = {}
 
 def slowfun(x, y):
@@ -18,9 +19,10 @@ def slowfun(x, y):
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.
     """
-    # Your code here
+    # if x,y in cache return value from cache
     if (f"{x},{y}") in cache:
         return cache[f"{x},{y}"]
+    # if x,y not in cache run logic, cache solution, and return solution
     else:
         v = math.pow(x, y)
         v = math.factorial(v)
