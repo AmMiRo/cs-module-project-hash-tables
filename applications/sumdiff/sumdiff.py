@@ -12,4 +12,20 @@ def f(x):
     return x * 4 + 6
 
 # Your code here
+added = {}
+subtracted = {}
 
+for i in q:
+    for j in q:
+        plus_val = f(i) + f(j)
+        plus_key = (i, j)
+        added[plus_key] = plus_val
+
+        sub_key = f(i) - f(j)
+        sub_val = (i, j)
+        subtracted[sub_key] = sub_val
+
+for (key, value) in added.items():
+    if value in subtracted:
+        sub_tup = subtracted[value]
+        print(f"f({key[0]}) + f({key[1]}) = f({sub_tup[0]}) - f({sub_tup[1]}) == {f(key[0])} + {f(key[1])} = {f(sub_tup[0])} - {f(sub_tup[1])}")
