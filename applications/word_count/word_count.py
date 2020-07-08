@@ -1,5 +1,23 @@
+import re
+
 def word_count(s):
     # Your code here
+    cache = {}
+    if s == "":
+        return cache
+    string = s.lower()
+    forbidden_char = ["\"", "\\", ":", ";", ",", ".", "-", "+", "=", "/", "|", "[", "]", "{", "}", "(", ")",  "*", "^", "&"]
+    for char in forbidden_char:
+        string = string.replace(char, "")
+    words = string.split(" ")
+    for word in words:
+        if word != "":
+            if word in cache:
+                cache[word] += 1
+            else:
+                cache[word] = 1
+    print(cache)
+    return cache
 
 
 
